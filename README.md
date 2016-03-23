@@ -1,5 +1,14 @@
 # 使用canvas实现运动的小球
 
+## 运动原理
+桢重绘
+```
+setInterval(function () {
+    render(context);
+    update();
+}, 50)
+```
+
 ## 运动定义
 - 水平速度
 - 垂直速度
@@ -12,8 +21,17 @@ var ball = {
     g: 2, 
     vx: -5, 
     vy: 0, 
-    color: '#005588'}
+    color: '#005588'
+    }
 ```
+## 轨迹变化
+根据速度改变绘制位置
+```
+ball.x += ball.vx;
+ball.y += ball.vy;
+ball.vy += ball.g; 
+```
+
 
 ## 碰撞检测
 例：
