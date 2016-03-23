@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运动的小球</title>
+</head>
+<body style="background: rgb(203,233,207);">
+
+<div id="canvas-box" style="position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; margin: auto;box-shadow: 0 0 5px #666; background: #f5f5f5;">
+    <canvas id="canvas"></canvas>
+</div>
+
+<script>
+    var box = document.getElementById('canvas-box');
+    var windowWidth = box.clientWidth;
+    var windowHeight = box.clientHeight;
+    var ball = {x: windowWidth * 0.6, y: windowHeight * 0.2, r: 20, g: 2, vx: -5, vy: 0, color: '#005588'};
+
+    window.onload = function () {
+        var canvas = document.getElementById('canvas');
+        canvas.width = windowWidth;
+        canvas.height = windowHeight;
+        var context = canvas.getContext('2d');
+
+        setInterval(function () {
+            render(context);
+            update();
+        }, 50)
+    };
+
+    function render(context) {
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        context.fillStyle = ball.color;
+
+        context.beginPath();
+        context.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
+        context.closePath();
+
+        context.fill();
+    }
+
+    function update() {
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+        ball.vy += ball.g;
+
+
+        //碰撞检测
+
+        //底部检测
+        if (ball.y > (windowHeight - ball.r)) {
+            ball.y = windowHeight - ball.r;
+            ball.vy = -ball.vy * 0.7;
+        }
+
+        //        左侧检测
+        if (ball.x < ball.r) {
+            ball.x = ball.r;
+            ball.vx = -ball.vx;
+        }
+        //        右侧检测
+        if (ball.x > windowWidth - ball.r) {
+            ball.x = windowWidth - ball.r;
+            ball.vx = -ball.vx;
+        }
+
+    }
+
+
+</script>
+</body>
+</html>
