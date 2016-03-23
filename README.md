@@ -1,4 +1,5 @@
 # 使用canvas实现运动的小球
+示例地址：[链接](http://oulafen.github.io/demo-moving-ball/)
 
 ## 运动原理
 桢重绘
@@ -31,7 +32,6 @@ ball.x += ball.vx;
 ball.y += ball.vy;
 ball.vy += ball.g; 
 ```
-
 
 ## 碰撞检测
 例：
