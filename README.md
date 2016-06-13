@@ -1,5 +1,5 @@
 # 使用canvas实现运动的小球
-示例地址：[链接](http://oulafen.github.io/demo-moving-ball/)
+示例地址：[http://blog.oulafen.com/demo-moving-ball/](http://blog.oulafen.com/demo-moving-ball/)
 
 ## 运动原理
 桢重绘
